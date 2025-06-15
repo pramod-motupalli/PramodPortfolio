@@ -40,7 +40,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-24">
           <a
             href="#"
-            className="text-4xl font-extrabold tracking-tight dark:text-white text-blue-300 bg-clip-text text-transparent drop-shadow-lg"
+            className="text-4xl font-extrabold tracking-tight dark:text-white text-blue-400 bg-clip-text text-transparent drop-shadow-lg"
             style={{
               letterSpacing: '0.05em',
               textShadow: '0 2px 16px rgba(64,83,191,.14)'
