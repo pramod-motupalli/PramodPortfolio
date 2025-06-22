@@ -1,32 +1,53 @@
-
-import { Section } from './Section';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
+import { useRef } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-const skills = {
-  "Languages": ["Python", "Java", "C", "C++", "JavaScript"],
-  "Frontend": ["React.js", "Tailwind CSS", "HTML", "CSS", "Vite"],
-  "Backend": ["Node.js", "Express.js", "Django"],
-  "Database": ["MongoDB", "PostgreSQL"],
-  "Libraries & Tools": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "Tkinter"],
-  "Others": ["Git", "GitHub", "REST APIs", "Firebase"],
-  "Soft Skills": ["Leadership", "Communication", "Problem Solving", "Critical Thinking"]
-};
+const allSkillsList = [
+  "Python", "Java", "C", "C++", "JavaScript",
+  "React.js", "Tailwind CSS", "HTML5", "CSS3", "Vite",
+  "Node.js", "Express.js", "Django",
+  "MongoDB", "PostgreSQL", "MySQL", "Firebase",
+  "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "Tkinter",
+  "Git", "GitHub", "REST APIs","Postman"
+];
+
+const shuffledSkills = [...allSkillsList].sort(() => Math.random() - 0.5);
 
 export const Skills = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(containerRef, { threshold: 0.1, freezeOnceVisible: true });
+
   return (
-    <Section id="skills" title="Skills">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {Object.entries(skills).map(([category, items]) => (
-          <div key={category}>
-            <h3 className="text-xl font-semibold text-primary mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-2">
-              {items.map(skill => (
-                <Badge key={skill} variant="secondary" className="text-lg px-4 py-2 hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-default hover:scale-105">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-        ))}
+    <section id="skills" className="py-12">
+      <div ref={containerRef} className="w-full">
+        <h2 className="text-4xl font-bold text-blue-600 text-center">Skills</h2>
+        <br />
+        <div
+          className={cn(
+            "flex flex-wrap justify-center gap-4 px-4 py-2",
+            "transition-opacity duration-1000 ease-out",
+            isVisible ? "opacity-100" : "opacity-0"
+          )}
+        >
+          {shuffledSkills.map((skill, index) => (
+            <Badge
+              key={skill + index}
+              variant="outline"
+              className={cn(
+                "whitespace-nowrap px-4 py-2 text-sm md:text-base font-medium rounded-lg",
+                "border-border bg-card text-muted-foreground shadow-sm",
+                "cursor-pointer transition-transform transition-colors duration-300 ease-out",
+                "hover:bg-primary/10 hover:border-primary hover:text-primary hover:shadow-lg hover:scale-110",
+                "opacity-0 animate-fade-slide-in"
+              )}
+              style={{ animationDelay: isVisible ? `${index * 50}ms` : '0ms' }}
+            >
+              {skill}
+            </Badge>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };

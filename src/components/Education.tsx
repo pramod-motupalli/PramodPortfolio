@@ -10,7 +10,7 @@ const education = [
     details: "CGPA: 8.4"
   },
   {
-    degree: "MPC Stream",
+    degree: "Intermediate - MPC Stream",
     institution: "Narayana Junior College",
     date: "2020–2022",
     details: "Score: 96%"

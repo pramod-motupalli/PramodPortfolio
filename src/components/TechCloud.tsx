@@ -84,8 +84,8 @@ export const TechCloud = () => {
   }, []);
 
   return (
-    <section className="py-24 px-2 sm:px-8 bg-gradient-to-tr from-[#EEF2FF] via-[#D5FFE4] to-[#C4E5FF] dark:from-[#141e30] dark:via-[#243B55] dark:to-[#24243e] transition-all duration-500 overflow-hidden">
-      
+    <section className="py-24 px-2 sm:px-8  transition-all duration-500 overflow-hidden">
+      <h2 className='text-4xl font-bold text-blue-600 text-center'>Tech cloud</h2>
       <div className="flex justify-center items-center min-h-[600px]">
         <div 
           className="relative w-[500px] h-[500px]"

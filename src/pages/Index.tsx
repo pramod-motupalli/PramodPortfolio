@@ -8,8 +8,8 @@ import { Skills } from '@/components/Skills';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { Education } from '@/components/Education';
-import { Achievements } from '@/components/Achievements';
-import { Certifications } from '@/components/Certifications';
+// import { Achievements } from '@/components/Achievements';
+// import { Certifications } from '@/components/Certifications';
 import { TechCloud } from '@/components/TechCloud';
 
 const Index = () => {
@@ -24,8 +24,8 @@ const Index = () => {
         <Projects />
         <TechCloud />
         <Skills />
-        <Certifications />
-        <Achievements />
+        {/* <Certifications />
+        <Achievements /> */}
         <Contact />
       </main>
       <Footer />
