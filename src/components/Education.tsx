@@ -10,11 +10,17 @@ const education = [
     details: "CGPA: 8.4"
   },
   {
-    degree: "Intermediate - MPC Stream",
+    degree: "Intermediate - M.P.C",
     institution: "Narayana Junior College",
     date: "2020–2022",
     details: "Score: 96%"
-  }
+  },
+  {
+    degree: "Secondary School Education",
+    institution: "Bhashyam E.M High School",
+    date: "2019–2020",
+    details: "Score: 96%"
+  },
 ];
 
 export const Education = () => {

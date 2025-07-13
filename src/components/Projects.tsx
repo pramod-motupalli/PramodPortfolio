@@ -16,6 +16,11 @@ const projects = [
     link: "https://moneymatrix2025.vercel.app/",
     description: "Real-time currency converter for 50+ currencies. Generated interactive charts using Pandas, Matplotlib, and Seaborn. Improved decision-making time by 35% in tests.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=6000&auto=format&fit=crop"
+  },{
+    title: "Gate Master",
+    link: "https://gatemaster.vercel.app/",
+    description: "A GATE exam test series is a structured set of mock tests designed to simulate the actual GATE exam, helping aspirants practice, assess performance, and improve time management.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtyrAks-_SGD_Nj1LP6TQMsmqmJRyRKaTjbA&s"
   }
 ];
 
