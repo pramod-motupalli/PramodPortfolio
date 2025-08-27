@@ -21,6 +21,12 @@ const projects = [
     link: "https://gatemaster.vercel.app/",
     description: "A GATE exam test series is a structured set of mock tests designed to simulate the actual GATE exam, helping aspirants practice, assess performance, and improve time management.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtyrAks-_SGD_Nj1LP6TQMsmqmJRyRKaTjbA&s"
+  },
+  {
+    title: "TeluguTilakam",
+    link: "https://telugutilakam.jntugvcev.in/",
+    description: "Developed a responsive website for Telugu Sahithi Samiti, integrating traditional design aesthetics with modern web technologies to showcase events, activities, and Telugu cultural identity.",
+    image: "./../public/WhatsApp Image 2025-08-26 at 13.06.56_a31336df.jpg"
   }
 ];
 
