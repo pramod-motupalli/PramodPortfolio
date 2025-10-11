@@ -31,7 +31,7 @@ export const Hero = () => {
           </Button>
          <Button variant="secondary" size="lg" className="ml-4 bg-slate-800">
   <a
-  href="/Pramod Motupalli Resume.pdf"
+  href="/Pramod Motupalli Resume_Full Stack Developer.pdf"
   download="Pramod Motupalli_Resume.pdf"
   className="text-white"
 >
