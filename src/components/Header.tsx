@@ -76,8 +76,9 @@ export const Header = () => {
               >
                 {link.label}
                 <span
+                  aria-hidden
                   className={cn(
-                    "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center",
+                    "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left",
                     activeSectionId === link.href.substring(1) ? "scale-x-100" : ""
                   )}
                 />

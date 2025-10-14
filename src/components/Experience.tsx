@@ -9,13 +9,13 @@ const experiencesData = [ // Renamed from 'experiences' to avoid conflict if use
   {
     role: "Fullstack Intern",
     company: "GA Digital Solutions",
-    date: "May 2025 – June-2025",
+    date: "May 2025 – June 2025",
     description: "Worked on the Digital Operations project, developing robust RESTful APIs and dynamic web interfaces to automate key operational workflows and improve analytics. Contributed to backend logic, data processing, and user experience enhancements.",
   },
   {
     role: "Fullstack Intern",
     company: "Uptoskills",
-    date: "April 2025 – June 2025",
+    date: "April 2025 – September 2025",
     description: "Collaborated on the AI Resume Builder project, building both backend and frontend features that leveraged AI to generate and optimize professional resumes for users. Focused on fullstack integrations, interactive UI, and smooth user onboarding."
   },
   {

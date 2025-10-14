@@ -26,7 +26,7 @@ const projects = [
     title: "TeluguTilakam",
     link: "https://telugutilakam.jntugvcev.in/",
     description: "Developed a responsive website for Telugu Sahithi Samiti, integrating traditional design aesthetics with modern web technologies to showcase events, activities, and Telugu cultural identity.",
-    image: "./../public/WhatsApp Image 2025-08-26 at 13.06.56_a31336df.jpg"
+    image: "/uploads/WhatsApp Image 2025-08-26 at 13.06.56_a31336df.jpg"
   }
 ];
 
@@ -36,7 +36,10 @@ export const Projects = () => {
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {projects.map((project) => (
           <Card key={project.title} className="bg-card border hover:border-primary/50 transition-all duration-300 flex flex-col group hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] overflow-hidden">
-            <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+            <div className="relative w-full h-48 overflow-hidden">
+              <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-lg transform group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" aria-hidden />
+            </div>
             <CardHeader>
               <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
             </CardHeader>
