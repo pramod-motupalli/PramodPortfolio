@@ -6,6 +6,18 @@ import { ExternalLink } from 'lucide-react';
 
 const projects = [
   {
+    title: "NeuraResume",
+    link: "https://github.com/pramod-motupalli/NeuraResume.git",
+    description: "The backend API for NeuraResume, built with FastAPI and Python. It handles resume parsing, communicates with the Groq/Llama 3.3 LLM, and orchestrates the AI agents. It provides an interactive interface for users to upload resumes, view AI-powered insights, and download interview preparation materials.",
+    image: "/neuraresume.png"
+  },
+  {
+    title: "Chess.IO",
+    link: "https://github.com/pramod-motupalli/Chess.IO.git",
+    description: "A full-stack Chess application where you can play against a Python-based AI agent,Custom Minimax algorithm with Alpha-Beta pruning and positional evaluation.",
+    image: "/chess-io.png"
+  },
+  {
     title: "Squid Game",
     link: "http://squidgame2025.vercel.app",
     description: "A 3-level gamified challenge that tests algorithmic thinking. Built in a team of 3. Engaged 50+ users and boosted interaction by 30%.",
@@ -16,7 +28,7 @@ const projects = [
     link: "https://moneymatrix2025.vercel.app/",
     description: "Real-time currency converter for 50+ currencies. Generated interactive charts using Pandas, Matplotlib, and Seaborn. Improved decision-making time by 35% in tests.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=6000&auto=format&fit=crop"
-  },{
+  }, {
     title: "Gate Master",
     link: "https://gatemaster.vercel.app/",
     description: "A GATE exam test series is a structured set of mock tests designed to simulate the actual GATE exam, helping aspirants practice, assess performance, and improve time management.",
@@ -27,7 +39,9 @@ const projects = [
     link: "https://telugutilakam.jntugvcev.in/",
     description: "Developed a responsive website for Telugu Sahithi Samiti, integrating traditional design aesthetics with modern web technologies to showcase events, activities, and Telugu cultural identity.",
     image: "/uploads/WhatsApp Image 2025-08-26 at 13.06.56_a31336df.jpg"
-  }
+  },
+
+
 ];
 
 export const Projects = () => {
