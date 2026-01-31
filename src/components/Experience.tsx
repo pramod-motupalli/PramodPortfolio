@@ -1,28 +1,34 @@
+
 import { Section } from './Section';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { cn } from '@/lib/utils'; // Make sure you have this utility
-import { useRef } from 'react';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'; // Adjust path
-import { useMediaQuery } from '@/hooks/useMediaQuery'; // Adjust path
+import { cn } from '@/lib/utils';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { motion } from 'framer-motion';
+import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
+import { useState } from 'react';
 
-const experiencesData = [ // Renamed from 'experiences' to avoid conflict if used as prop
+const experiencesData = [
   {
     role: "Fullstack Intern",
     company: "GA Digital Solutions",
     date: "May 2025 – June 2025",
     description: "Worked on the Digital Operations project, developing robust RESTful APIs and dynamic web interfaces to automate key operational workflows and improve analytics. Contributed to backend logic, data processing, and user experience enhancements.",
+    tech: ["React", "fastapi", "postgreSQL"]
   },
   {
     role: "Fullstack Intern",
     company: "Uptoskills",
     date: "April 2025 – September 2025",
-    description: "Collaborated on the AI Resume Builder project, building both backend and frontend features that leveraged AI to generate and optimize professional resumes for users. Focused on fullstack integrations, interactive UI, and smooth user onboarding."
+    description: "Collaborated on the AI Resume Builder project, building both backend and frontend features that leveraged AI to generate and optimize professional resumes for users. Focused on fullstack integrations, interactive UI, and smooth user onboarding.",
+    tech: ["MERN Stack", "OpenAI API", "Redux"]
   },
   {
     role: "Frontend Intern",
     company: "IncrivelSoft",
     date: "April 2025 – June 2025",
-    description: "Worked on TummyTales, a cross-platform food discovery and recipe-sharing web app. Implemented responsive user interfaces, engaging interactions, and enhanced usability to improve user experience and drive engagement."
+    description: "Worked on TummyTales, a cross-platform pregnancy and maternity support web app. Implemented responsive user interfaces, engaging interactions, and user-friendly features to help expectant mothers discover nutritious recipes, pregnancy guidance, and wellness content, enhancing usability and overall user experience.",
+    tech: ["React Native", "Firebase", "UI/UX"]
   },
 ];
 
@@ -33,100 +39,101 @@ interface ExperienceItemProps {
 }
 
 const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience: exp, index, isMobile }) => {
-  const itemRef = useRef<HTMLDivElement>(null);
-  // Animate when 20% of the item is visible
-  const isVisible = useIntersectionObserver(itemRef, { threshold: 0.2, freezeOnceVisible: true });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const isLeftAlignedOnDesktop = index % 2 === 0;
 
   return (
-    <div
-      ref={itemRef}
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
       className={cn(
         "relative md:flex md:items-start group",
-        // Zig-zag layout for desktop
-        !isMobile && (isLeftAlignedOnDesktop ? "" : "md:flex-row-reverse"),
-        // Base transition classes for opacity and transform
-        "transition-opacity transition-transform duration-700 ease-out",
-        // Staggered delay using inline style (Tailwind delay classes can be limited)
-        // Add `transform` class to ensure translate utilities apply
-        "transform",
-        // Initial animation state (hidden) vs. Visible state
-        isVisible
-          ? "opacity-100 translate-y-0 translate-x-0"
-          : cn(
-              "opacity-0",
-              // Mobile: slides up from bottom
-              isMobile ? "translate-y-10" :
-              // Desktop: slides from sides
-              (isLeftAlignedOnDesktop ? "-translate-x-12" : "translate-x-12") // Increased distance for more effect
-            )
+        !isMobile && (isLeftAlignedOnDesktop ? "" : "md:flex-row-reverse")
       )}
-      style={{ transitionDelay: isVisible ? '0ms' : `${index * 150}ms` }} // Apply delay only when initially hidden
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Timeline Dot & Date Container */}
       <div className={cn(
         "md:w-1/2 flex",
-        !isMobile && (isLeftAlignedOnDesktop ? "md:justify-end md:pr-[calc(50%+1.25rem)]" : "md:justify-start md:pl-[calc(50%+1.25rem)]")
+        !isMobile && (isLeftAlignedOnDesktop ? "md:justify-end md:pr-[calc(50%+2rem)]" : "md:justify-start md:pl-[calc(50%+2rem)]")
       )}>
         <div className={cn(
-          "absolute left-0 top-1 h-5 w-5 rounded-full border-4 border-background bg-muted group-hover:bg-primary transition-colors duration-300",
-          "md:left-1/2 md:-translate-x-1/2 md:group-hover:ring-4 md:group-hover:ring-primary/30"
+          "absolute left-0 top-6 h-6 w-6 rounded-full border-4 border-background bg-primary shadow-[0_0_10px_rgba(59,130,246,0.5)] z-10 transition-transform duration-300",
+          "md:left-1/2 md:-translate-x-1/2",
+          isHovered ? "scale-150 bg-white" : ""
         )} />
       </div>
 
-      {/* Card Container with Connector */}
+      {/* Card Container */}
       <div className={cn(
-        "relative mt-8 md:mt-0 w-full",
-        !isMobile && "md:w-[calc(50%-1.25rem)]", // Gap from center line
-        !isMobile && (isLeftAlignedOnDesktop ? "md:ml-[1.25rem]" : "md:mr-[1.25rem]")
+        "relative mt-8 md:mt-0 w-full perspective-1000",
+        !isMobile && "md:w-[calc(50%-2rem)]", 
+        !isMobile && (isLeftAlignedOnDesktop ? "md:mr-auto md:pr-4" : "md:ml-auto md:pl-4")
       )}>
-        {/* Connector Arrow (Desktop only) */}
-        <div className={cn(
-          "hidden md:block absolute top-3 w-4 h-4 bg-card border-border rotate-45",
-          "group-hover:border-primary/50 transition-colors duration-300",
-          !isMobile && (isLeftAlignedOnDesktop
-            ? "left-[-8px] border-b-0 border-r-0 border-t border-l"
-            : "right-[-8px] border-t-0 border-l-0 border-b border-r")
-        )} aria-hidden="true" />
-
-        <Card className={cn(
-          "bg-card border border-border shadow-md transition-all duration-300 ease-out",
-          "group-hover:shadow-xl group-hover:shadow-primary/10 group-hover:border-primary/50 group-hover:scale-[1.02]"
-        )}>
-          <CardHeader>
-            <div className="flex justify-between items-start flex-col sm:flex-row">
-              <div>
-                <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">{exp.role}</CardTitle>
-                <CardDescription className="text-base text-muted-foreground">{exp.company}</CardDescription>
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Card className={cn(
+            "border border-border/40 bg-card/30 overflow-hidden relative shadow-sm",
+            "hover:border-border hover:shadow-md",
+            "transition-all duration-300 backdrop-blur-sm"
+          )}>
+            <CardHeader className="pb-3">
+              <div className="flex justify-between items-start flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <Briefcase className="w-4 h-4 text-muted-foreground" />
+                  <CardTitle className="text-xl font-bold text-foreground font-heading tracking-tight">{exp.role}</CardTitle>
+                </div>
+                <CardDescription className="text-lg font-medium text-foreground/80 flex items-center justify-between w-full">
+                  <span>{exp.company}</span>
+                  <span className="text-sm font-normal text-muted-foreground flex items-center gap-1 bg-secondary px-3 py-1 rounded-full">
+                    <Calendar className="w-3 h-3" />
+                    {exp.date}
+                  </span>
+                </CardDescription>
               </div>
-              <p className="text-sm text-muted-foreground mt-2 sm:mt-0 whitespace-nowrap">{exp.date}</p>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
-          </CardContent>
-        </Card>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{exp.description}</p>
+              
+              <div className="flex flex-wrap gap-2 mt-4">
+                {exp.tech && exp.tech.map((t) => (
+                  <span key={t} className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/50">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const Experience = () => {
-  // Tailwind's `md` breakpoint is typically 768px.
-  // `useMediaQuery` will return true if screen width is <= 767px.
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   return (
     <Section id="experience" title="Professional Experience">
-      <div className="relative max-w-5xl mx-auto px-4 py-12">
-        {/* Central Timeline Line - Hidden on mobile */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-border transform -translate-x-1/2 hidden md:block" aria-hidden="true" />
+      <div className="relative max-w-6xl mx-auto px-4 py-8">
+        {/* Central Timeline Line */}
+        <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/20 via-primary/50 to-primary/20 transform md:-translate-x-1/2" aria-hidden="true" />
 
-        <div className="space-y-16 md:space-y-0"> {/* Base spacing between items */}
+        <div className="space-y-12">
           {experiencesData.map((exp, index) => (
             <ExperienceItem
-              key={exp.company + exp.role + index} // More robust key
+              key={index}
               experience={exp}
               index={index}
               isMobile={isMobile}

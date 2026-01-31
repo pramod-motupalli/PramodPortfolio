@@ -47,7 +47,7 @@ export const Skills = () => {
     <section id="skills" className="py-16 md:py-24">
       <div ref={containerRef} className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heading tracking-tight">
             Technical Skills
           </h2>
           <p className="text-muted-foreground mt-4">
@@ -60,20 +60,19 @@ export const Skills = () => {
             <Card 
               key={category.name}
               className={cn(
-                "overflow-hidden border transition-all duration-300",
-                "hover:border-primary/50 hover:shadow-lg group",
+                "overflow-hidden border border-border/40 bg-card/30 transition-all duration-300",
+                "hover:border-border hover:shadow-md group backdrop-blur-sm",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
               )}
               style={{
-                transitionDelay: `${categoryIndex * 100}ms`,
-                background: `linear-gradient(135deg, ${category.gradient})`
+                transitionDelay: `${categoryIndex * 100}ms`
               }}
             >
               <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                <div className="p-2 rounded-lg bg-secondary text-foreground group-hover:scale-110 transition-transform">
                   {category.icon}
                 </div>
-                <CardTitle className="text-lg">{category.name}</CardTitle>
+                <CardTitle className="text-lg font-heading tracking-wide">{category.name}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -82,9 +81,9 @@ export const Skills = () => {
                       key={skill}
                       variant="outline"
                       className={cn(
-                        "bg-background/50 backdrop-blur-sm",
+                        "bg-background/50 backdrop-blur-sm border-border/50",
                         "transition-all duration-300",
-                        "hover:bg-primary/10 hover:border-primary group-hover:border-primary/50"
+                        "hover:bg-secondary hover:text-secondary-foreground hover:border-border cursor-default"
                       )}
                     >
                       {skill}

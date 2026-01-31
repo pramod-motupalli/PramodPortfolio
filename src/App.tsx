@@ -8,12 +8,15 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "next-themes";
 
+import { GlobalBackground } from "@/components/GlobalBackground";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <GlobalBackground />
         <Toaster />
         <Sonner />
         <BrowserRouter>

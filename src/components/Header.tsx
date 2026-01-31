@@ -35,9 +35,9 @@ export const Header = () => {
     <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        "bg-gradient-to-r from-[#e6f0fd] via-[#e3f5ff] to-[#c6e6fb]",
-        "dark:from-[#223058] dark:via-[#21375a] dark:to-[#090e19]",
-        scrolled ? "shadow-md" : ""
+        scrolled 
+          ? "bg-background/80 backdrop-blur-md border-b border-border/40" 
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,15 +46,11 @@ export const Header = () => {
   href="#"
   className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200"
 >
-  <CodeXml className="w-10 h-8 text-primary dark:text-primary" />
+  <CodeXml className="w-8 h-8 text-foreground" />
   <span
     className={cn(
-      "text-3xl md:text-4xl font-bold tracking-tight",
-      "bg-clip-text text-transparent",
-      "bg-gradient-to-r from-primary via-primary/80 to-primary/60",
-      "dark:from-primary dark:via-primary/90 dark:to-primary/70"
+      "text-2xl font-bold tracking-tight font-heading text-foreground",
     )}
-    style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}
   >
     Pramod
   </span>

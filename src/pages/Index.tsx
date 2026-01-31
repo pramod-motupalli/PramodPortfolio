@@ -14,7 +14,7 @@ import { TechCloud } from '@/components/TechCloud';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#EEF2FF] via-[#D5FFE4] to-[#C4E5FF] dark:from-[#141e30] dark:via-[#243B55] dark:to-[#24243e] transition-all duration-500 text-foreground font-sans">
+    <div className="min-h-screen transition-all duration-500 text-foreground font-sans bg-transparent">
       <Header />
       <main>
         <Hero />
