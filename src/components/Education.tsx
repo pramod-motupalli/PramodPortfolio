@@ -11,7 +11,7 @@ const education = [
     degree: "B.Tech in Computer Science",
     institution: "JNTU GV",
     date: "2022–2026",
-    details: "CGPA: 8.54",
+    details: "CGPA: 8.65",
     icon: GraduationCap,
     color: "text-blue-500",
     bg: "bg-blue-500/10"

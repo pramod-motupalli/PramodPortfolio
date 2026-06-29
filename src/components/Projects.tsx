@@ -16,6 +16,13 @@ const projects = [
     tags: ["FastAPI", "Python", "AI/ML", "LLM"]
   },
   {
+    title: "Lawgorithm",
+    link: "https://github.com/pramod-motupalli",
+    description: "AI-powered legal advisory system (final-year project) with FIR drafting, legal Q&A, and verdict prediction via RAG pipelines and multi-agent workflows. Built RAG pipeline using ChromaDB and sentence embeddings.",
+    image: "/placeholder.svg",
+    tags: ["React", "FastAPI", "LLMs", "RAG", "AI Agents"]
+  },
+  {
     title: "Chess.IO",
     link: "https://chess-io-2026.vercel.app/",
     description: "A full-stack Chess application where you can play against a Python-based AI agent,Custom Minimax algorithm with Alpha-Beta pruning and positional evaluation.",
@@ -23,7 +30,7 @@ const projects = [
     tags: ["Python", "AI", "Minimax", "Game Dev"]
   },
   {
-    title: "TeluguTilakam",
+    title: "Telugu Tilakam",
     link: "https://telugutilakam.jntugvcev.in/",
     description: "Developed a responsive website for Telugu Sahithi Samiti, integrating traditional design aesthetics with modern web technologies to showcase events, activities, and Telugu cultural identity.",
     image: "/uploads/WhatsApp Image 2025-08-26 at 13.06.56_a31336df.jpg",
@@ -50,8 +57,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=6000&auto=format&fit=crop",
     tags: ["Python", "Data Viz", "Real-time"]
   },
-  
-  
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {

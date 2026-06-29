@@ -10,11 +10,11 @@ import { useState } from 'react';
 
 const experiencesData = [
   {
-    role: "Fullstack Intern",
+    role: "Software Developer",
     company: "GA Digital Solutions",
-    date: "May 2025 – June 2025",
-    description: "Worked on the Digital Operations project, developing robust RESTful APIs and dynamic web interfaces to automate key operational workflows and improve analytics. Contributed to backend logic, data processing, and user experience enhancements.",
-    tech: ["React", "fastapi", "postgreSQL"]
+    date: "Apr 2026 – Present",
+    description: "GA HireSync: Designed & maintained 20+ Django/DRF endpoints for recruitment lifecycle. Built 3 AI agents and 2 LLM bots, cutting recruiter effort by ~30%. Developed React analytics dashboards. GA Grid: Architected RBAC supporting 5 roles across 25 users; built workspace, work-item, and task lifecycle modules.",
+    tech: ["React", "Django", "FastAPI", "PostgreSQL", "AI/ML", "RBAC"]
   },
   {
     role: "Fullstack Intern",
@@ -24,11 +24,11 @@ const experiencesData = [
     tech: ["MERN Stack", "OpenAI API", "Redux"]
   },
   {
-    role: "Frontend Intern",
-    company: "IncrivelSoft",
-    date: "April 2025 – June 2025",
-    description: "Worked on TummyTales, a cross-platform pregnancy and maternity support web app. Implemented responsive user interfaces, engaging interactions, and user-friendly features to help expectant mothers discover nutritious recipes, pregnancy guidance, and wellness content, enhancing usability and overall user experience.",
-    tech: ["React Native", "Firebase", "UI/UX"]
+    role: "Frontend Developer Intern",
+    company: "Incrivelsoft Pvt Ltd",
+    date: "Apr 2025 – Jul 2025",
+    description: "Built 8+ reusable React + Tailwind CSS components (carousels, quizzes, responsive layouts) for TummyTales, a pregnancy support platform, improving cross-feature UI consistency. Implemented fully static, performance-optimized frontend with zero external API dependencies, ensuring fast load times and high reliability across devices.",
+    tech: ["React", "Tailwind CSS", "UI/UX"]
   },
 ];
 
